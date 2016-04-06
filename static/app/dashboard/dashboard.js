@@ -1,27 +1,22 @@
-(function () {
-    'use strict';
-    
-    var app= angular.module('DApp', ['ngRoute']);
+var app= angular.module('DDashboardModule', ['ngRoute']);
 
-    //the function expression that will 
-    //configure our router module
-    app.config(['$routeProvider',
-                 function ($routeProvider) {
-                    $routeProvider
-                    //when the user clicks signup
-                    .when('/abc', {
-                        templateUrl: 'app/register/register.html',
-                        controller: function ($scope) {
-                            $scope.message = 'Hello!';
-                        }
-                    })
-                    .otherwise({
-                      redirectTo: '/',
-                      templateUrl: 'app/dashboard/dashboard.html',
-                      controller: 'DDashboard'
-                    });
-                }
-               ]);
+//the function expression that will 
+//configure our router module
+app.config(['$routeProvider',
+     function ($routeProvider) {
+            $routeProvider
+            //when the user clicks signup
+            .when('/createWorkflow', {
+                templateUrl: 'app/workflow/create.html'
+            })
+            .when('/signDocument', {
+                templateUrl: 'app/sign/load.html'
+            })
+            .when('/reports', {
+                templateUrl: 'app/reports/search.html'
+            });
+    }
+]);
     
     app.controller('DDashboard', ['$scope', '$http', function ($scope,$http) {
         // create a blank object to handle form data.
