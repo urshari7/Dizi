@@ -1,8 +1,29 @@
 (function () {
     'use strict';
- 
-    var app= angular.module('DApp');
-    app.controller('DRegister', ['$scope', '$http', function ($scope,$http) {
+    
+    var app= angular.module('DApp', ['ngRoute']);
+
+    //the function expression that will 
+    //configure our router module
+    app.config(['$routeProvider',
+                 function ($routeProvider) {
+                    $routeProvider
+                    //when the user clicks signup
+                    .when('/abc', {
+                        templateUrl: 'app/register/register.html',
+                        controller: function ($scope) {
+                            $scope.message = 'Hello!';
+                        }
+                    })
+                    .otherwise({
+                      redirectTo: '/',
+                      templateUrl: 'app/dashboard/dashboard.html',
+                      controller: 'DDashboard'
+                    });
+                }
+               ]);
+    
+    app.controller('DDashboard', ['$scope', '$http', function ($scope,$http) {
         // create a blank object to handle form data.
         $scope.loginform = {};
         
@@ -35,7 +56,6 @@
                     }
               });
         };
-        
+    
     }]);
- 
-}());
+    

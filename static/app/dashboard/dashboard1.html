@@ -19,13 +19,13 @@
     <link href="assets/css/carousel.css" rel="stylesheet">
     <link href="/assets/css/bootstrap-datetimepicker.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/register.css">
-    
+
       
   </head>
 <!-- NAVBAR
 ================================================== -->
-  <body ng-controller="DIndex">
-    
+  <body ng-controller="DDashBoard">
+    <div ng-include = "'app/menu/mainmenu.html'"></div>
 
     <div ng-view></div>
 
@@ -51,7 +51,7 @@
     <script src="app/angular.js"></script>
     <script src="app/angular-route.js"></script>
     <script src="app/app.js"></script>
-    <script src="app/index/indexController.js"></script>    
+    <script src="app/dashboard/dashboardController.js"></script>    
 
     <script>
         $(function() {

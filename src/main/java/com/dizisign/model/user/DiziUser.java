@@ -15,13 +15,13 @@ public class DiziUser {
     private String email;
     private String passwordHash;
     private String passwordSalt;
-    private String status;
+    private UserStatus status;
     private boolean verified;
     @OneToOne(fetch=FetchType.LAZY)
     private PersonalDetails personalDetails;
     @OneToOne(fetch=FetchType.LAZY)
     private ContactInfo contactInfo;
-	
+	private UserRole role;
     
     public Long getId() {
 		return id;
@@ -47,11 +47,17 @@ public class DiziUser {
 	public void setPasswordSalt(String passwordSalt) {
 		this.passwordSalt = passwordSalt;
 	}
-	public String getStatus() {
+	public UserStatus getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(UserStatus status) {
 		this.status = status;
+	}
+	public UserRole getRole() {
+		return role;
+	}
+	public void setRole(UserRole role) {
+		this.role = role;
 	}
 	public boolean isVerified() {
 		return verified;
@@ -74,10 +80,11 @@ public class DiziUser {
 	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", passwordHash="
+		return "DiziUser [id=" + id + ", email=" + email + ", passwordHash="
 				+ passwordHash + ", passwordSalt=" + passwordSalt + ", status="
 				+ status + ", verified=" + verified + ", personalDetails="
-				+ personalDetails + ", contactInfo=" + contactInfo + "]";
+				+ personalDetails + ", contactInfo=" + contactInfo + ", role="
+				+ role + "]";
 	}
     
     

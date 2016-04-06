@@ -1,75 +1,9 @@
-<!DOCTYPE html>
+<div ng-include = "'app/menu/menu.html'"></div>
 
-<html lang="en" ng-app="DApp">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>Carousel Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="/assets/css/bootstrap-datetimepicker.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/register.css">
-
-  </head>
-<!-- NAVBAR
-================================================== -->
-  <body ng-controller="DRegister">
-    <!-- navigation start -->
-    <div class="navbar-wrapper">
-      <div class="container">
-
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-               <a class="navbar-brand" href="#"><img src="/assets/images/logo.jpg"></a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-			  <ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-				  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-					<ul id="login-dp" class="dropdown-menu">
-						<li>
-							 <div class="row">
-									<div class="col-md-12">
-										 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-												<div class="form-group">
-													 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
-												</div>
-												<div class="form-group">
-													 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-													 <div class="help-block text-right"><a href="">Forgot password ?</a></div>
-												</div>
-												<div class="form-group">
-													 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-												</div>
-										 </form>
-									</div>
-									<div class="bottom text-center">
-										New here ? <a href="register.html"><b>Join Us</b></a>
-									</div>
-							 </div>
-						</li>
-					</ul>
-				</li>
-
-              </ul>
-            </div>
-          </div>
-        </nav>
-       </div><!-- /.container -->
-    </div>
-    <!-- navigation end -->
-      
-    <!-- register page start -->
+<!-- register page start -->
 <div class="container" >
-    <div class="col-md-12" ><h1>Create an Account</h1></div>
+    <div class="col-md-12" ><h1>&nbsp;</h1></div>
+    <div class="col-md-12" ><h1>Create an Account</h1></div>        
     <form id="signup" method="post" action="/signup" >
     <div class="col-md-6" >
         <div id="logbox"  >
@@ -84,12 +18,12 @@
                     </span>
                 </div>
                 <input name="user[mobile]" type="tel" placeholder="Mobile" class="input" required="required" />                
-                <div class='input-group-checkbox'>
+                <div class='input-group-radio'>
                 <label class="checkbox-inline">
-                    <input type="checkbox" value="M" />Male
+                    <input type="radio" value="M" name="sex" />Male
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" value="F" /s>Female
+                    <input type="radio" value="F" name="sex" />Female
                 </label>
                 </div>
         </div>
@@ -107,50 +41,17 @@
     <!--col-md-6-->
     </form>
 </div>
+<!-- register Page End -->
 
-    
-  <!-- register Page End -->
-      
-  
-    <div class="container">
-      <!-- FOOTER -->
-      <footer>
-        <p>&copy; 2016 WowCompany, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-    </div>
-  
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/moment.min.js"></script>
-    <script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="/assets/js/animsition.min.js"></script>      
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="/assets/js/holder.min.js"></script>
-    <script src="/app/angular.js"></script>
-    <script src="/app/angular-route.js"></script>
-    <script src="/app/app.js"></script>
-    <script src="/app/register/registerController.js"></script>    
-
-		<script>
-$(function() {
-  $(".nav li").on("click", function() {
-    $(".nav li").removeClass("active");
-    // $(this).addClass("active");
-  });
-  
-});	
-            
-        
-            $(function () {
-                $('#datetimepicker1').datetimepicker({
-                    format: 'YYYY-MM-DD'
-                });
-            });
-        
+<!-- Javascript for Registration -->
+<script src="/assets/js/moment.min.js"></script>
+<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/assets/js/animsition.min.js"></script>      
+<script src="/app/register/registerController.js"></script>    
+<script>
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    });
 </script>
-
-  </body>
-</html>
