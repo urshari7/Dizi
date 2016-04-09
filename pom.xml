@@ -12,8 +12,7 @@
     <plugins>
         <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.0</version>
+        <artifactId>maven-war-plugin</artifactId>        <version>2.0</version>
         <configuration>
             <outputDirectory>C:\programs\apache-tomcat-8.0.9\webapps</outputDirectory>
         </configuration>
@@ -22,7 +21,18 @@
 </build>
 
   <dependencies>
-
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>servlet-api</artifactId>
+		<version>3.0-alpha-1</version>
+	</dependency>
+	<dependency>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.6.2</version>
+	</dependency>
+	
+	
     <!--  for REST services start -->
 	<dependency>
 		<groupId>org.glassfish.jersey.containers</groupId>
