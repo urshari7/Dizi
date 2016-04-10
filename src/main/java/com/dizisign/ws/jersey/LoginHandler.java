@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -24,19 +23,6 @@ import com.dizisign.ws.util.ResponseUtil;
 @Path("login")
 public class LoginHandler {
 	
-	@GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String method1() {
-        return "LoginSuccessText";
-    }
-
-	@GET
-    @Produces(MediaType.TEXT_HTML)
-    public String method2() {
-		DiziUser user = ServiceContext.getLoginService().login("abc@abc.com", "abcd");
-		System.out.println("LoginResponse::"+user);
-        return "LoginSuccessHTML:"+user;
-    }
 	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
