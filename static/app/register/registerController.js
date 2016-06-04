@@ -1,25 +1,22 @@
-(function () {
-    'use strict';
  
-    var app= angular.module('DApp');
+    var app= angular.module('DAppModule');
     app.controller('DRegister', ['$scope', '$http', function ($scope,$http) {
         // create a blank object to handle form data.
-        $scope.loginform = {};
+        $scope.signup = {};
         
         // calling our submit function.
-        $scope.submitForm = function() {
+        
+        $scope.register = function(user) {
 
             console.log('form submitted');
-            console.log('email:'+$scope.loginform.email)
-            console.log('password:'+$scope.loginform.password);
             // Posting data to REST service
-            var data = 'email='+$scope.loginform.email+'&password='+$scope.loginform.password;
-            console.log('data:'+data);
+           console.log('data:'+JSON.stringify(user));
+           alert(JSON.stringify(user));
             $http({
               method  : 'POST',
-              url     : 'http://localhost/dizisign-1.0-SNAPSHOT/rest/login',
-              data    : data, //forms user object
-              headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
+              url     : 'http://localhost:8080/dizisign-1.0-SNAPSHOT/rest/signup',
+              data    : user, //forms user object
+              headers : {'Content-Type': 'application/j'} 
              })
               .success(function(response) {
                     console.log('response:'+response.status);
@@ -38,4 +35,3 @@
         
     }]);
  
-}());

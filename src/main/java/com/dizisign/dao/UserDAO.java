@@ -6,5 +6,7 @@ import com.dizisign.model.user.DiziUser;
 
 @Repository
 public interface UserDAO extends CrudRepository<DiziUser, Long> {
-
+	
+//	public boolean createAccount(DiziUser user);
+	
 }

@@ -18,11 +18,11 @@ public class PersonalDetails {
 	private String middleName;
 	private String lastName;
 	private Date dob;
-	private String sex;
+	private String gender;
 	private String ssn;
-	@OneToOne(mappedBy="personalDetails")
+	/*@OneToOne(mappedBy="personalDetails")
 	private DiziUser user;
-	
+	*/
 	
 	public Long getId() {
 		return id;
@@ -60,11 +60,11 @@ public class PersonalDetails {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public String getSex() {
-		return sex;
+	public String getGender() {
+		return gender;
 	}
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	public String getSsn() {
 		return ssn;
@@ -72,18 +72,18 @@ public class PersonalDetails {
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
-	public DiziUser getUser() {
+	/*public DiziUser getUser() {
 		return user;
 	}
 	public void setUser(DiziUser user) {
 		this.user = user;
 	}
-	
+	*/
 	@Override
 	public String toString() {
 		return "PersonalDetails [id=" + id + ", title=" + title
 				+ ", firstName=" + firstName + ", middleName=" + middleName
-				+ ", lastName=" + lastName + ", dob=" + dob + ", sex=" + sex
+				+ ", lastName=" + lastName + ", dob=" + dob + ", gender=" + gender
 				+ ", ssn=" + ssn + "]";
 	}
 	

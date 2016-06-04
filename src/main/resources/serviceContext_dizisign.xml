@@ -11,6 +11,7 @@
     <context:annotation-config />
     
 	<bean id="loginService" class="com.dizisign.service.login.LoginServiceImpl" scope="singleton" />
+	<bean id="registerAccountService" class="com.dizisign.service.login.RegisterAccountServiceImpl" scope="singleton" />
     
 
 </beans>

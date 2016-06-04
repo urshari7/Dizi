@@ -17,7 +17,7 @@ app.controller('DLoginController', ['$scope', '$http', '$location', function ($s
         console.log('data:'+data);
         $http({
           method  : 'POST',
-          url     : 'http://localhost/dizisign-1.0-SNAPSHOT/rest/login',
+          url     : 'http://localhost:8080/dizisign-1.0-SNAPSHOT/rest/login',
           data    : data, //forms user object
           headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
          })

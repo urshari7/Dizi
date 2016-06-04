@@ -10,7 +10,8 @@
                     $routeProvider
                     //when the user clicks signup
                     .when('/register', {
-                        templateUrl: 'app/register/register.html'
+                        templateUrl: 'app/register/register.html',
+                        controller :'DRegister'
                     })
                     .when('/home', {
                         templateUrl: 'app/home/home.html'
