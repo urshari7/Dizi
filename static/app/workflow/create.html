@@ -31,16 +31,18 @@
     var dropZone = document.getElementById('drop-zone');
     var uploadForm = document.getElementById('js-upload-form');
 
+    
     var startUpload = function(files) {
         console.log(files)
     }
-
+    /*
     uploadForm.addEventListener('submit', function(e) {
         var uploadFiles = document.getElementById('js-upload-files').files;
         e.preventDefault()
 
         startUpload(uploadFiles)
     })
+    */
 
     dropZone.ondrop = function(e) {
         e.preventDefault();
@@ -74,13 +76,12 @@
       <div class="panel panel-default">
         <div class="panel-heading"><strong>Upload Document</strong> <small></small></div>
         <div class="panel-body">
+          <!-- Standard Form -->
+          <form class="form" role="form" ng-submit="submitForm()" accept-charset="UTF-8" id="js-upload-form" ng-controller="DFileUploadController" enctype="multipart/form-data">
 
-          <!-- Standar Form -->
-          <h4>Select from your computer</h4>
-          <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
             <div class="form-inline">
               <div class="form-group">
-                <input type="file" name="files[]" id="js-upload-files" multiple>
+                <input type="file" id="js-upload-files"  file-model="uploadForm.file" required>
               </div>
               <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload</button>
             </div>
@@ -91,6 +92,22 @@
           <div class="upload-drop-zone" id="drop-zone">
             Just drag and drop files here
           </div>
+
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong>Select Participants</strong> <small></small></div>
+        <div class="panel-body">
+
+          <!-- Standar Form -->
+          <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+            <div class="form-inline">
+              <div class="form-group">
+                <input type="file" name="files[]" id="js-upload-files" multiple>
+              </div>
+              <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload</button>
+            </div>
+          </form>
 
         </div>
       </div>
