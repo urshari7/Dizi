@@ -13,6 +13,9 @@
                         templateUrl: 'app/register/register.html',
                         controller :'DRegister'
                     })
+                    .when('/registerSuccess',{
+                    	templateUrl: 'app/register/success.html'
+                    })
                     .when('/home', {
                         templateUrl: 'app/home/home.html'
                     })

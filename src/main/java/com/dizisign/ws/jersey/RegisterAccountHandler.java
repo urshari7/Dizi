@@ -4,9 +4,7 @@ import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -16,7 +14,6 @@ import javax.ws.rs.core.MediaType;
 import com.dizisign.model.user.ContactInfo;
 import com.dizisign.model.user.DiziUser;
 import com.dizisign.model.user.PersonalDetails;
-import com.dizisign.model.user.UserRole;
 import com.dizisign.service.login.AuthUtils;
 import com.dizisign.util.ServiceContext;
 import com.dizisign.ws.util.JsonUtil;
@@ -30,7 +27,7 @@ public class RegisterAccountHandler {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String doRegister(@BeanParam User user,
+	public String doRegister( User user,
 		      @Context HttpServletRequest servletRequest){
 		String jsonResponse =  null;
 		try{
@@ -67,32 +64,29 @@ public class RegisterAccountHandler {
 			personalDetails.setTitle("MR");
 			diziUser.setPersonalDetails(personalDetails);
 			
-			ServiceContext.getRegisterAccountService().register(diziUser);
+			RESTResponse response =  null;
+			try {
+				ServiceContext.getRegisterAccountService().register(diziUser);
+					System.err.println("Registration Sucess");
+					HttpSession session = servletRequest.getSession(true);
+					response =  ResponseUtil.prepareRESTResponse(ResponseStatus.success, user, null);
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				System.err.println("Registration Error");
+				response =  ResponseUtil.prepareRESTResponse(ResponseStatus.failed, null, "Registration Faild");
+				e.printStackTrace();
+			}
+			jsonResponse =  JsonUtil.convertToJson(response);
+			RequestLogger.debug("Registration Response:"+jsonResponse);
+			System.err.println("Registration Response:"+jsonResponse);
 			
 			
 //			diziUser.setRole(UserRole);
 //			diziUser.setStatus("ACTIVE");s
-			diziUser.setVerified(false);
-			/*RequestLogger.debug("doLoginn:"+email+":"+password);
-			String passwordHash = AuthUtils.getPasswordHash(password);
-			DiziUser user = ServiceContext.getLoginService().login(email,passwordHash);
-			if (user == null){
-				user = getTestUser(email);
-			}
-			RequestLogger.debug("user:"+user);
-			RESTResponse response =  null;
-			if (user!=null){
-				HttpSession session = servletRequest.getSession(true);
-				response =  ResponseUtil.prepareRESTResponse(ResponseStatus.success, user, null);
-			}else{
-				response =  ResponseUtil.prepareRESTResponse(ResponseStatus.failed, null, "Invalid Login/Password.");
-			}
-			RequestLogger.debug("response:"+response);
-			jsonResponse =  JsonUtil.convertToJson(response);
-			RequestLogger.debug("doLoginn:"+jsonResponse);*/
 		}catch(Throwable e){
 			e.printStackTrace();
-			RequestLogger.error("Login Failed:", e);
+			RequestLogger.error("Registration Failed:", e);
 		}
 		return jsonResponse;
 	}

@@ -33,23 +33,30 @@ public class LoginHandler {
 		String jsonResponse =  null;
 		try{
 			RequestLogger.debug("doLoginn:"+email+":"+password);
+			
 			String passwordHash = AuthUtils.getPasswordHash(password);
+			System.err.println("doLoginn:"+email+":"+passwordHash);
 			DiziUser user = ServiceContext.getLoginService().login(email,passwordHash);
 			if (user == null){
 				user = getTestUser(email);
 			}
 			RequestLogger.debug("user:"+user);
+			System.err.println("user:"+user);
 			RESTResponse response =  null;
 			if (user!=null){
+				System.err.println("Login Sucess");
 				HttpSession session = servletRequest.getSession(true);
 				response =  ResponseUtil.prepareRESTResponse(ResponseStatus.success, user, null);
 			}else{
+				System.err.println("Login Error");
 				response =  ResponseUtil.prepareRESTResponse(ResponseStatus.failed, null, "Invalid Login/Password.");
 			}
 			RequestLogger.debug("response:"+response);
 			jsonResponse =  JsonUtil.convertToJson(response);
 			RequestLogger.debug("doLoginn:"+jsonResponse);
+			System.err.println("doLoginn:"+jsonResponse);
 		}catch(Throwable e){
+			e.printStackTrace();
 			RequestLogger.error("Login Failed:", e);
 		}
 		return jsonResponse;
