@@ -22,9 +22,9 @@ public class DiziUser {
     private String passwordSalt;
     private UserStatus status;
     private boolean verified;
-    @OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+    @OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
     private PersonalDetails personalDetails;
-    @OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
     private ContactInfo contactInfo;
 	private UserRole role;
     
