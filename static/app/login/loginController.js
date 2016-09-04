@@ -6,6 +6,12 @@ app.controller('DLoginController', ['$scope', '$http', '$location', function ($s
     // create a blank object to handle form data.
     $scope.loginform = {};
 
+	$scope.delay = 0;
+	$scope.minDuration = 0;
+	$scope.message = 'Please Wait...';
+	$scope.backdrop = true;
+	$scope.promise = null;
+    
     // calling our submit function.
     $scope.submitForm = function() {
 
@@ -15,7 +21,7 @@ app.controller('DLoginController', ['$scope', '$http', '$location', function ($s
         // Posting data to REST service
         var data = 'email='+$scope.loginform.email+'&password='+$scope.loginform.password;
         console.log('data:'+data);
-        $http({
+        $scope.promise = $http({
           method  : 'POST',
           url     : 'http://localhost/dizisign-1.0-SNAPSHOT/rest/login',
           data    : data, //forms user object

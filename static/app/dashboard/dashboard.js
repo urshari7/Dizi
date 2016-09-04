@@ -9,11 +9,14 @@ app.config(['$routeProvider',
             .when('/createWorkflow', {
                 templateUrl: 'app/workflow/create.html'
             })
+            .when('/setWorkflowFields', {
+                templateUrl: 'app/workflow/addFields.html'
+            })
             .when('/signDocument', {
-                templateUrl: 'app/sign/load.html'
+                templateUrl: 'app/sign/sign.html'
             })
             .when('/reports', {
-                templateUrl: 'app/reports/search.html'
+                templateUrl: 'app/reports/reports.html'
             });
     }
 ]);

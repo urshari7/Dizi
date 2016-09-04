@@ -1,0 +1,138 @@
+<style type="text/css">
+*{box-sizing: border-box;}
+.wrapper {margin: 0 auto; width: 960px; }
+.pdf-controls { width: 100%; display: block; background: #eee; padding: 1em;}
+.rotate0 {-webkit-transform: rotate(0deg); transform: rotate(0deg); }
+.rotate90 {-webkit-transform: rotate(90deg); transform: rotate(90deg); }
+.rotate180 {-webkit-transform: rotate(180deg); transform: rotate(180deg); }
+.rotate270 {-webkit-transform: rotate(270deg); transform: rotate(270deg); }
+.fixed { position: fixed; top: 0; left: calc(50% - 480px); z-index: 100; width: 100%; padding: 1em; background: rgba(238, 238, 238,.9); width: 960px; }
+
+.contentEditorBox {
+  border: 1px solid black;
+  background-color: white;
+  width: 50px;
+  height: 50px; }
+
+.regular-checkbox{
+  width: 20px;
+  height: 20px; 
+}
+    
+.draggable {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  cursor: pointer; }
+
+.n-resize {
+  position: absolute;
+  top: -3px;
+  left: 0px;
+  width: 100%;
+  height: 20px;
+  cursor: n-resize; }
+
+.e-resize {
+  position: absolute;
+  top: 0px;
+  left: calc(100% - 2px);
+  width: 20px;
+  height: 100%;
+  cursor: w-resize; }
+
+.s-resize {
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 0px;
+  width: 100%;
+  height: 20px;
+  cursor: s-resize; }
+
+.w-resize {
+  position: absolute;
+  top: 0px;
+  left: -3px;
+  width: 20px;
+  height: 100%;
+  cursor: e-resize; }
+
+.nw-resize {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 20px;
+  height: 20px;
+  cursor: nw-resize; }
+
+.ne-resize {
+  position: absolute;
+  top: -3px;
+  left: calc(100% - 4px);
+  width: 20px;
+  height: 20px;
+  cursor: ne-resize; }
+
+.se-resize {
+  position: absolute;
+  top: calc(100% - 4px);
+  left: calc(100% - 4px);
+  width: 20px;
+  height: 20px;
+  cursor: se-resize; }
+
+.sw-resize {
+  position: absolute;
+  top: calc(100% - 4px);
+  left: -3px;
+  width: 20px;
+  height: 20px;
+  cursor: sw-resize; }
+
+</style>
+
+
+    
+    
+<div ng-include = "'app/menu/mainmenu.html'"></div>
+
+<div class="container">
+    <div class="row">
+            <div class="col-md-12" ><h1>&nbsp;</h1></div>
+    </div>
+    <hr>
+    <!-- participant start -->
+   <div class="panel panel-default">
+        <div class="panel-body">
+                    <input id="toolCheck" type="checkbox" class="regular-checkbox" ce-box-creator="25,25"/>
+        </div>
+    </div>
+    <!-- participant end -->
+    
+    <!-- pdf content start -->
+      <div class="panel panel-default">
+            <div class="panel-heading"><strong>Select Participants</strong> <small></small></div>
+            <div class="panel-body">
+                  <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="wrapper" ng-controller="DPDFController">
+                                    <h1>{{pdfName}}</h1>
+                                    <ng-pdf template-url="app/workflow/pdfViewer.html" canvasid="pdfCanvas" scale="page-fit" page=1></ng-pdf>
+                                </div>
+                            </div>  <!-- /div.col-md-12 -->
+                        </div>  <!-- /div.row -->
+                  </div>  <!-- /div.container -->
+            </div>
+      </div>
+    <!-- pdf content end -->
+    
+    <div class="row">
+            <div class="col-md-12" ><button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Save & Continue</button></div>
+    </div>
+    <hr>
+
+    
+</div> <!-- /container -->

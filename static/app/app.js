@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     
-    var app= angular.module('DAppModule', ['ngRoute','DDashboardModule']);
+    var app= angular.module('DAppModule', ['ngRoute','DDashboardModule','pdf','cgBusy','ngAnimate']);
 
     //the function expression that will 
     //configure our router module
