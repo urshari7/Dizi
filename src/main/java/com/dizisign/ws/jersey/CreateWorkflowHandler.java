@@ -36,9 +36,10 @@ public class CreateWorkflowHandler {
 		String jsonResponse =  null;
 		RESTResponse response =  null;
 
-		String fileLocation = "D://" + fileDetail.getFileName();  
+		String fileLocation = "C://" + fileDetail.getFileName();  
 		//saving file  
-		try(FileOutputStream out = new FileOutputStream(new File(fileLocation))) {  
+		try{
+			FileOutputStream out = new FileOutputStream(new File(fileLocation));
 			int read = 0;  
 			byte[] bytes = new byte[1024];  
 			//out = new FileOutputStream(new File(fileLocation));  

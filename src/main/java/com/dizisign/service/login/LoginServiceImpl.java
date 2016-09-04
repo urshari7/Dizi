@@ -20,9 +20,11 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public DiziUser login(String email, String passwordHash) {
-		System.out.println("loginDAO:"+loginDAO);
+		
 		DiziUser user = loginDAO.findByEmail(email);
+		System.out.println("loginDAO:"+user);
 		if (user!=null){
+			
 			return passwordHash.equals(user.getPasswordHash())?user:null;
 		}
 		return null;

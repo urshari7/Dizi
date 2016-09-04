@@ -16,6 +16,7 @@
 	    <param-name>jersey.config.server.provider.classnames</param-name>  
 	    <param-value>org.glassfish.jersey.filter.LoggingFilter;org.glassfish.jersey.media.multipart.MultiPartFeature</param-value>  
 	</init-param> 
+	
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -31,7 +32,6 @@
 	    <param-name>contextConfigLocation</param-name>
 	    <param-value>classpath:applicationContext.xml</param-value>
   </context-param>
-
   <listener>
 	   <listener-class>
 	       org.springframework.web.context.ContextLoaderListener

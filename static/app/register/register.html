@@ -4,38 +4,38 @@
 <div class="container" >
     <div class="col-md-12" ><h1>&nbsp;</h1></div>
     <div class="col-md-12" ><h1>Create an Account</h1></div>        
-    <form id="signup" method="post" action="/signup" >
+    <form id="signup" method="post" ng-controller="DRegister" >
     <div class="col-md-6" >
         <div id="logbox"  >
                 
-				 <input name="user[email]" type="email" placeholder="Email address" class="input" required="required" />
-                <input name="user[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
-                <input name="user[password2]" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+				<input name="email" ng-model="user.email" type="email" placeholder="Email address" class="input" required="required" />
+                <input name="password" ng-model="user.password"  type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                <input name="password2" ng-model="user.password2" type="password" placeholder="Confirm password" required="required" class="input pass"/>
                 <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="input pass" placeholder="Date of Birth" />
+                    <input type='text' name = "dob" ng-model="user.dob" class="input pass" placeholder="Date of Birth" />
                     <span class="input-group-addon-date">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
-                <input name="user[mobile]" type="tel" placeholder="Mobile" class="input" required="required" />                
+                <input name="mobile" ng-model="user.mobile" type="tel" placeholder="Mobile" class="input" required="required" />                
                 <div class='input-group-radio'>
                 <label class="checkbox-inline">
-                    <input type="radio" value="M" name="sex" />Male
+                    <input type="radio" ng-model="user.gender" value="M" name="gender" />Male
                 </label>
                 <label class="checkbox-inline">
-                    <input type="radio" value="F" name="sex" />Female
+                    <input type="radio" ng-model="user.gender" value="F" name="gender" />Female
                 </label>
                 </div>
         </div>
     </div>
         <div class="col-md-6" >
         <div id="logbox"  >
-                <input name="user[mobile]" placeholder="Address" class="input" required="required" />
-                <input name="user[mobile]" placeholder="Address2" class="input" />
-                <input name="user[mobile]" placeholder="City" class="input" required="required" />
-                <input name="user[mobile]" placeholder="Province" class="input" required="required" />
-                <input name="user[mobile]" placeholder="Country" class="input" required="required" />
-                <button type="submit"  class="input-signup btn btn-primary btn-block">Sign me up!</button>
+                <input name="address" ng-model="user.address" placeholder="Address" class="input" required="required"  />
+                <input name="address2" ng-model="user.address2" placeholder="Address2" class="input" />
+                <input name="city"  ng-model="user.city" placeholder="City" class="input" required="required" />
+                <input name="province" ng-model="user.province" placeholder="Province" class="input" required="required" />
+                <input name="country" ng-model="user.country" placeholder="Country" class="input" required="required" />
+                <button ng-click="register(user)"  class="input-signup btn btn-primary btn-block">Sign me up!</button>
         </div>
     </div>
     <!--col-md-6-->
@@ -44,14 +44,14 @@
 <!-- register Page End -->
 
 <!-- Javascript for Registration -->
-<script src="/assets/js/moment.min.js"></script>
-<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
-<script src="/assets/js/animsition.min.js"></script>      
-<script src="/app/register/registerController.js"></script>    
+<!-- <script src="/assets/js/moment.min.js"></script> -->
+<!-- <script src="/assets/js/bootstrap-datetimepicker.min.js"></script> -->
+<!-- <script src="/assets/js/animsition.min.js"></script> -->      
+<!-- <script src="/app/register/registerController.js"></script> -->    
 <script>
-    $(function () {
+    /* $(function () {
         $('#datetimepicker1').datetimepicker({
             format: 'YYYY-MM-DD'
         });
-    });
+    }); */
 </script>

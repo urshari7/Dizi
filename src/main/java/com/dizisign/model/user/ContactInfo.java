@@ -18,8 +18,8 @@ public class ContactInfo {
 	private String address2;
 	private String state;
 	private String country;
-	@OneToOne(mappedBy="contactInfo")
-	private DiziUser user;
+	/*@OneToOne(mappedBy="contactInfo")
+	private DiziUser user;*/
 	
 	public Long getId() {
 		return id;

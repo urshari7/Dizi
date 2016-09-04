@@ -7,6 +7,7 @@ import com.dizisign.service.login.LoginService;
 import com.dizisign.service.pdf.store.PDFService;
 import com.dizisign.service.pdf.workflow.PDFWorkflowService;
 import com.dizisign.service.workflow.WorkflowService;
+import com.dizisign.service.login.RegisterAccountService;
 
 public class ServiceContext {
 
@@ -41,4 +42,7 @@ public class ServiceContext {
 		return (WorkflowService) getContext().getSpringContext().getBean("workflowService");
 	}
 
+	public static RegisterAccountService getRegisterAccountService(){
+		return (RegisterAccountService) getContext().getSpringContext().getBean("registerAccountService");
+	}
 }
