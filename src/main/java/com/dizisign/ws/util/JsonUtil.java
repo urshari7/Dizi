@@ -10,4 +10,14 @@ public class JsonUtil {
 		if (src == null) return null;
 		return gson.toJson(src);
 	}
+	
+	public static Object convertFromJson(String jsonFormat,Class<?> c){
+		try{
+			if (jsonFormat == null) return null;
+			return gson.fromJson(jsonFormat, c);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

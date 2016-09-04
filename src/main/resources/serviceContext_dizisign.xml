@@ -11,6 +11,23 @@
     <context:annotation-config />
     
 	<bean id="loginService" class="com.dizisign.service.login.LoginServiceImpl" scope="singleton" />
-    
 
+	<bean id="diskStore" class="com.dizisign.service.pdf.store.DiskStore" scope="singleton">
+		<property name="baseLocation" value="C:\\Dizi\\"/>
+		<property name="fileSeparator" value="\\"/>
+	</bean>
+
+	<bean id="pdfParser" class="com.dizisign.service.pdf.util.PDFParser" scope="singleton">
+		<property name="fileSeparator" value="\\"/>
+	</bean>
+		
+	<bean id="pdfService" class="com.dizisign.service.pdf.store.PDFServiceImpl" scope="singleton">
+	    <property name="store" ref="diskStore"/>
+	    <property name="pdfParser" ref="pdfParser"/>
+	</bean>
+
+	<bean id="pdfWorkflowService" class="com.dizisign.service.pdf.workflow.PDFWorkflowServiceImpl" scope="singleton" />
+		
+	<bean id="workflowService" class="com.dizisign.service.workflow.WorkflowServiceImpl" scope="singleton" />
+		
 </beans>

@@ -19,6 +19,7 @@ import com.dizisign.ws.util.JsonUtil;
 import com.dizisign.ws.util.RequestLogger;
 import com.dizisign.ws.util.ResponseStatus;
 import com.dizisign.ws.util.ResponseUtil;
+import com.dizisign.ws.util.SessionConstants;
 
 @Path("login")
 public class LoginHandler {
@@ -43,6 +44,7 @@ public class LoginHandler {
 			if (user!=null){
 				HttpSession session = servletRequest.getSession(true);
 				response =  ResponseUtil.prepareRESTResponse(ResponseStatus.success, user, null);
+				session.setAttribute(SessionConstants.USER_ID, user.getId());
 			}else{
 				response =  ResponseUtil.prepareRESTResponse(ResponseStatus.failed, null, "Invalid Login/Password.");
 			}
@@ -59,13 +61,14 @@ public class LoginHandler {
 	private DiziUser getTestUser(String email){
 		if ("test@test.com".endsWith(email)){
 			DiziUser user = new DiziUser();
+			user.setId(123L);
 			user.setEmail(email);
 			user.setStatus(UserStatus.trial);
 			user.setVerified(true);
 			PersonalDetails details = new PersonalDetails();
 			details.setFirstName("First");
 			details.setLastName("Last");
-			details.setId(1L);
+			details.setId(17L);
 			details.setMiddleName("Middle");
 			details.setTitle("Mr");
 			user.setPersonalDetails(details);

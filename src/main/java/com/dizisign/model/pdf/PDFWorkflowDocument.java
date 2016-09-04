@@ -1,11 +1,13 @@
 package com.dizisign.model.pdf;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class PDFWorkflowDocument{
 
 	@Id
@@ -13,7 +15,7 @@ public class PDFWorkflowDocument{
     private Long id;
 	private Long workflowID;
 	
-    @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch=FetchType.LAZY)
 	private PDFDocument pdfDocument;
 	
 	public Long getId() {

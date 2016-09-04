@@ -14,7 +14,8 @@ public class PDFDocument {
     private Long id;
 	private String name;
 	private String path;
-	private String ownerEmail;
+	private short numberOfPages;
+	private Long ownerUserID;
 	private Date uploadedDate;
 
 	public Long getId() {
@@ -35,11 +36,17 @@ public class PDFDocument {
 	public void setPath(String path) {
 		this.path = path;
 	}
-	public String getOwnerEmail() {
-		return ownerEmail;
+	public Long getOwnerUserID() {
+		return ownerUserID;
 	}
-	public void setOwnerEmail(String ownerEmail) {
-		this.ownerEmail = ownerEmail;
+	public short getNumberOfPages() {
+		return numberOfPages;
+	}
+	public void setNumberOfPages(short numberOfPages) {
+		this.numberOfPages = numberOfPages;
+	}
+	public void setOwnerUserID(Long ownerUserID) {
+		this.ownerUserID = ownerUserID;
 	}
 	public Date getUploadedDate() {
 		return uploadedDate;
@@ -50,8 +57,8 @@ public class PDFDocument {
 	@Override
 	public String toString() {
 		return "PDFDocument [id=" + id + ", name=" + name + ", path=" + path
-				+ ", ownerEmail=" + ownerEmail + ", uploadedDate="
-				+ uploadedDate + "]";
+				+ ", numberOfPages=" + numberOfPages + ", ownerUserID="
+				+ ownerUserID + ", uploadedDate=" + uploadedDate + "]";
 	}
 	
 }
