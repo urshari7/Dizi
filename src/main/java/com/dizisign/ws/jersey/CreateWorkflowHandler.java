@@ -24,7 +24,7 @@ import com.dizisign.ws.util.ResponseUtil;
 @Path("workflow")
 public class CreateWorkflowHandler {
 
-	@POST
+	/*@POST
 	@Path("/upload")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -58,6 +58,6 @@ public class CreateWorkflowHandler {
 		jsonResponse =  JsonUtil.convertToJson(response);
 		RequestLogger.debug("uploadFile:"+jsonResponse);
 		return jsonResponse;
-	}  
+	}  */
 
 }
